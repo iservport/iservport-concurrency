@@ -33,8 +33,15 @@ class GameSpec extends AnyFreeSpec with Matchers {
 
       "must hold a full hand criterion" in {
 
-        Game.fullHand must be ("_A_J_Q_K")
+        Game.fullHand must be ("_J_Q_K")
       }
+
+      "must indicate when a game is over" in {
+
+        // TODO create game over conditions
+        game.isOver must be(false)
+      }
+
     }
   }
 }

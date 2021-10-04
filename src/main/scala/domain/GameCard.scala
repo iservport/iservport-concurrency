@@ -1,11 +1,15 @@
 package com.iservport.concurrency
 package domain
 
+import domain.data.{CardFace, CardSuit}
+
 import scala.language.postfixOps
 
-case class GameCard(suit: CardSuit, face: CardFace, colour: CardColour) extends Ordered[GameCard] {
+case class GameCard(suit: CardSuit, face: CardFace) extends Ordered[GameCard] {
 
-  val id: String = s"$suit${face}_$colour"
+  val colour = suit.getColour
+
+  val id: String = s"$suit$colour${face}"
 
   def isNumeric: Boolean = face.isNumeric
 

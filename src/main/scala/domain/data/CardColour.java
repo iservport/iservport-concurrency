@@ -1,4 +1,4 @@
-package com.iservport.concurrency.domain;
+package com.iservport.concurrency.domain.data;
 
 public enum CardColour {
 
