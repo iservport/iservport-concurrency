@@ -1,6 +1,8 @@
 package com.iservport.concurrency
 package domain
 
+import domain.data.{CardFace, CardSuit}
+
 import scala.util.Random
 
 case class CardDeck(cards: Seq[GameCard])
@@ -11,11 +13,10 @@ object CardDeck {
 
   val all: Array[GameCard] = {
     for {
-      colours <- CardColour.values()
       faces <- CardFace.values()
       suits <- CardSuit.values()
     } yield {
-      GameCard(suits, faces, colours)
+      GameCard(suits, faces)
     }
   }
 

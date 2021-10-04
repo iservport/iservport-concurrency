@@ -1,9 +1,8 @@
-package com.iservport.concurrency.domain;
+package com.iservport.concurrency.domain.data;
 
 public enum CardFace {
 
-    _A(false),
-    _1,
+    _A,
     _2,
     _3,
     _4,
@@ -19,11 +18,11 @@ public enum CardFace {
 
     private boolean numeric;
 
-    private CardFace() {
+    CardFace() {
         this.numeric = true;
     }
 
-    private CardFace(boolean numeric) {
+    CardFace(boolean numeric) {
         this.numeric = numeric;
     }
 

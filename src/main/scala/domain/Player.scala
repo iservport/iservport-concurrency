@@ -1,6 +1,8 @@
 package com.iservport.concurrency
 package domain
 
+import domain.data.CardColour
+
 import scala.collection.mutable
 
 case class Player(hand: Hand, colour: CardColour) {

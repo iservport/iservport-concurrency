@@ -1,6 +1,8 @@
 package com.iservport.concurrency
 package domain
 
+import domain.data.{CardColour, CardFace}
+
 import scala.collection.mutable
 import scala.util.Random
 
