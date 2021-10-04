@@ -16,15 +16,14 @@ object Application extends App {
       game
     }
     else {
-      print("\u001Bc") // optional trick to clear screen first
-      println("You are "+game.round)
+      println("You are player "+game.round.getColorName)
       println("Pick one card from the table")
       val index = scala.io.StdIn.readInt()
       val nextGame = game.play(index)
       println("Game is ")
       println("Black cards are: "+nextGame.playerBlack.hand)
       println("Red cards are: "+nextGame.playerRed.hand)
-      println("Next player is "+nextGame.round)
-      nextGame
+      println("Next player is "+nextGame.round.getColorName)
+      recurse(nextGame)
     }
 }

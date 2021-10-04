@@ -39,7 +39,11 @@ case class Game(playerRed: Player, playerBlack: Player, heap: mutable.Buffer[Gam
     }
 
   val isOver: Boolean =
-    currentPlayer.hand.cards.map(_.face).filterNot(_.isNumeric).map(_.name()).mkString == Game.fullHand
+    currentPlayer.hand.cards.groupBy(_.suit).values.foldLeft(false) { case(acum, subSet) =>
+      println(s">> $subSet")
+      acum || subSet.sortBy(_.face).map(_.face).filterNot(_.isNumeric).map(_.name()).mkString == Game.fullHand
+    }
+  // Scala note: fold left accumulates a result over a collection
   // Scala note: a single argument function like y = f(x), also noted as x => y, can be written as _.f
   // Example: card => card.face is a function taking a card and returning a face, or GameCard => CardFace, can be _.face
 }
@@ -47,13 +51,13 @@ object Game {
 
   def newGame: Game = {
 
-    val startWith: CardColour = CardColour.values()(Random.nextInt() % 2) // Either 0 or 1, mapping to Black or Red
+    val startWith: CardColour = CardColour.values()(Math.abs(Random.nextInt() % 2)) // Either 0 or 1, mapping to Black or Red
     val (heap: Seq[GameCard], table: Seq[GameCard]) =
       CardDeck().cards.partition(_.face.isNumeric)
 
     Game(Player.playerRed, Player.playerBlack, heap.toBuffer, table.toBuffer, startWith)
   }
 
-  val fullHand: String = CardFace.values().filterNot(_.isNumeric).map(_.name()).mkString
+  val fullHand: String = CardFace.values().filterNot(_.isNumeric).map(_.name()).mkString // AJQQK
 }
 
