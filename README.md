@@ -1,3 +1,5 @@
+![Tests](https://github.com/iservport/iservport-concurrency/actions/workflows/scala.yml/badge.svg)
+
 # Concurrency Game
 
 ## Setup
