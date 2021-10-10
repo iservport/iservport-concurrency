@@ -10,7 +10,7 @@ public enum CardColour {
         this.colourName = colourName;
     }
 
-    public String getColorName() {
+    public String getColourName() {
         return colourName;
     }
 }

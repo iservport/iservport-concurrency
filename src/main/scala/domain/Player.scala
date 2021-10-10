@@ -7,6 +7,10 @@ import scala.collection.mutable
 
 case class Player(hand: Hand, colour: CardColour) {
 
+  val getCards: Array[GameCard] = hand.cards.toArray
+
+  val getColour: String = colour.getColourName
+
   def pick(index: Int, cards: mutable.Buffer[GameCard]): Option[GameCard] =
     cards.lift(index).filter(_.colour == colour)
 

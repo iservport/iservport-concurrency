@@ -9,11 +9,11 @@ case class GameCard(suit: CardSuit, face: CardFace) extends Ordered[GameCard] {
 
   val colour = suit.getColour
 
-  val id: String = s"$suit$colour${face}"
+  val getId: String = s"$suit$colour${face}"
 
   def isNumeric: Boolean = face.isNumeric
 
-  override def toString: String = id
+  override def toString: String = getId
 
-  override def compare(that: GameCard): Int = this.id compare that.id
+  override def compare(that: GameCard): Int = this.getId compare that.getId
 }
