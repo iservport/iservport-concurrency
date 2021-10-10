@@ -41,8 +41,8 @@ case class Game(playerRed: Player, playerBlack: Player, heap: mutable.Buffer[Gam
     }
 
   val getPlayer: Player = currentPlayer
-  val getTable: mutable.Buffer[GameCard] = table
-  val getHeap: mutable.Buffer[GameCard] = heap
+  val getTable: Array[GameCard] = table.toArray
+  val getHeap: Array[GameCard] = heap.toArray
 
   val isOver: Boolean =
     currentPlayer.hand.cards.groupBy(_.suit).values.foldLeft(false) { case(acum, subSet) =>
