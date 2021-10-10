@@ -9,6 +9,8 @@ case class GameCard(suit: CardSuit, face: CardFace) extends Ordered[GameCard] {
 
   val colour = suit.getColour
 
+  val getPrefix: String = s"$suit$colour"
+
   val getId: String = s"$suit$colour${face}"
 
   def isNumeric: Boolean = face.isNumeric
