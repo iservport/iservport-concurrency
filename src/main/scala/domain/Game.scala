@@ -40,6 +40,10 @@ case class Game(playerRed: Player, playerBlack: Player, heap: mutable.Buffer[Gam
       case CardColour.R => copy(round = CardColour.B)
     }
 
+  val getPlayer: Player = currentPlayer
+  val getTable: mutable.Buffer[GameCard] = table
+  val getHeap: mutable.Buffer[GameCard] = heap
+
   val isOver: Boolean =
     currentPlayer.hand.cards.groupBy(_.suit).values.foldLeft(false) { case(acum, subSet) =>
       println(s">> $subSet")
