@@ -18,5 +18,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Run tests
-      run: sbt test
+    - name: PUBLISH
+      run: sbt test publish
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
